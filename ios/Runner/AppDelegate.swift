@@ -27,23 +27,10 @@ import clevertap_plugin
     override func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
-        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
-    ) {
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 //        completionHandler([.banner, .badge, .sound])
         
         CleverTap.sharedInstance()?.handleNotification(withData: notification.request.content.userInfo, openDeepLinksInForeground: true)
         completionHandler([.badge, .sound, .alert])
     }
-    
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
-//
-//
-//
-//        print("APPDELEGATE: didReceiveResponseWithCompletionHandler\(response.notification.request.content.userInfo)")
-//
-//        // If you wish CleverTap to record the notification click and fire any deep links contained in the payload.
-//
-//         CleverTap.sharedInstance()?.handleNotification(withData: notification.request.content.userInfo, openDeepLinksInForeground: true)
-//         completionHandler([.badge, .sound, .alert])
-//    }
 }
