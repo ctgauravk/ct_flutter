@@ -3,6 +3,7 @@ import Flutter
 import CleverTapSDK
 import clevertap_plugin
 
+@available(iOS 10.0, *)
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(
@@ -12,6 +13,7 @@ import clevertap_plugin
     GeneratedPluginRegistrant.register(with: self)
       CleverTap.autoIntegrate() // integrate CleverTap SDK using the autoIntegrate option
       CleverTapPlugin.sharedInstance()?.applicationDidLaunch(options: launchOptions)
+      UNUserNotificationCenter.current().delegate = self
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
     
@@ -21,4 +23,27 @@ import clevertap_plugin
         print(token)
         CleverTap.sharedInstance()?.setPushToken(deviceToken as Data)
     }
+    
+    override func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+//        completionHandler([.banner, .badge, .sound])
+        
+        CleverTap.sharedInstance()?.handleNotification(withData: notification.request.content.userInfo, openDeepLinksInForeground: true)
+        completionHandler([.badge, .sound, .alert])
+    }
+    
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
+//
+//
+//
+//        print("APPDELEGATE: didReceiveResponseWithCompletionHandler\(response.notification.request.content.userInfo)")
+//
+//        // If you wish CleverTap to record the notification click and fire any deep links contained in the payload.
+//
+//         CleverTap.sharedInstance()?.handleNotification(withData: notification.request.content.userInfo, openDeepLinksInForeground: true)
+//         completionHandler([.badge, .sound, .alert])
+//    }
 }
