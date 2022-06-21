@@ -44,6 +44,8 @@ class _MyAppState extends State<MyApp> {
     CleverTapPlugin.setDebugLevel(3);
     CleverTapPlugin.createNotificationChannel(
         "fluttertest", "Flutter Test", "Flutter Test", 3, true);
+    CleverTapPlugin.
+    createNotificationChannel("euro", "Name Test", "Description Test", 3, true);
 
     var profile = {
       'Name': 'tank',

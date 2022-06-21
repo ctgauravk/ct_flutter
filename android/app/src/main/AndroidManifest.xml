@@ -1,8 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fct">
+
+    <!-- Required to allow the app to send events and user profile information -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Recommended so that CleverTap knows when to attempt a network call -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
    <application
         android:label="fct"
-        android:name="${applicationName}"
+        android:name=".AppFCT"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -30,5 +35,19 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+       <meta-data
+           android:name="CLEVERTAP_ACCOUNT_ID"
+           android:value="6ZR-965-446Z"/>
+       <meta-data
+           android:name="CLEVERTAP_TOKEN"
+           android:value="56c-216"/>
+
+       <service android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService"
+           android:exported="true">
+           <intent-filter>
+               <action android:name="com.google.firebase.MESSAGING_EVENT" />
+           </intent-filter>
+       </service>
     </application>
 </manifest>

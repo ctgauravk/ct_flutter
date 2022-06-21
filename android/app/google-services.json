@@ -1,0 +1,206 @@
+{
+  "project_info": {
+    "project_number": "806344482105",
+    "project_id": "ctandroid-e86a1",
+    "storage_bucket": "ctandroid-e86a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806344482105:android:867476b02794fb1a195ce8",
+        "android_client_info": {
+          "package_name": "com.clevertap.ct_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806344482105-mq8ti54dfscthsc6k6s4uj907eprhe5d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.clevertap.ct_flutter",
+            "certificate_hash": "6bd1169317967e18cb508f4c33ac562fe73c2b58"
+          }
+        },
+        {
+          "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARns9TPx1yuFEEkzU9UPVNPllhSA9GUjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806344482105-0oi0dl4jhdrjrrruka3qr8jkl5qgfjqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "clevertap.ct-integration"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806344482105:android:9835aef2a6be43be195ce8",
+        "android_client_info": {
+          "package_name": "com.clevertap.ctandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806344482105-gifjp8j6fso210dmf6n8ekh49vjfracj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.clevertap.ctandroid",
+            "certificate_hash": "6bd1169317967e18cb508f4c33ac562fe73c2b58"
+          }
+        },
+        {
+          "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARns9TPx1yuFEEkzU9UPVNPllhSA9GUjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806344482105-0oi0dl4jhdrjrrruka3qr8jkl5qgfjqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "clevertap.ct-integration"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806344482105:android:206d01904554e753195ce8",
+        "android_client_info": {
+          "package_name": "com.clevertap.flutter_push"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARns9TPx1yuFEEkzU9UPVNPllhSA9GUjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806344482105-0oi0dl4jhdrjrrruka3qr8jkl5qgfjqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "clevertap.ct-integration"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806344482105:android:0f5403c6a7f7b5a4195ce8",
+        "android_client_info": {
+          "package_name": "com.example.fct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARns9TPx1yuFEEkzU9UPVNPllhSA9GUjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806344482105-0oi0dl4jhdrjrrruka3qr8jkl5qgfjqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "clevertap.ct-integration"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806344482105:android:482f986adf7b0fe6195ce8",
+        "android_client_info": {
+          "package_name": "com.reactnct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARns9TPx1yuFEEkzU9UPVNPllhSA9GUjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806344482105-sabr58c1lkv509r2un89ngiqkiinqbh6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806344482105-0oi0dl4jhdrjrrruka3qr8jkl5qgfjqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "clevertap.ct-integration"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
