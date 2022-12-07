@@ -13,6 +13,11 @@
 		7ED28145FAB4ECF884BE89DE /* Pods_fct_push.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDA6BB7963071C776038DBA /* Pods_fct_push.framework */; };
 		914FD7B02844A9AE00D71A81 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FD7AF2844A9AE00D71A81 /* NotificationService.swift */; };
 		914FD7B42844A9AE00D71A81 /* fct_push.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 914FD7AD2844A9AE00D71A81 /* fct_push.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9183724A289D3CD80053C40B /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91837249289D3CD80053C40B /* UserNotifications.framework */; };
+		9183724C289D3CD80053C40B /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9183724B289D3CD80053C40B /* UserNotificationsUI.framework */; };
+		9183724F289D3CD80053C40B /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183724E289D3CD80053C40B /* NotificationViewController.swift */; };
+		91837252289D3CD80053C40B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91837250289D3CD80053C40B /* MainInterface.storyboard */; };
+		91837256289D3CD80053C40B /* fct_template.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 91837248289D3CD80053C40B /* fct_template.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
@@ -27,6 +32,13 @@
 			remoteGlobalIDString = 914FD7AC2844A9AE00D71A81;
 			remoteInfo = fct_push;
 		};
+		91837254289D3CD80053C40B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91837247289D3CD80053C40B;
+			remoteInfo = fct_template;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				91837256289D3CD80053C40B /* fct_template.appex in Embed App Extensions */,
 				914FD7B42844A9AE00D71A81 /* fct_push.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -69,6 +82,12 @@
 		914FD7AF2844A9AE00D71A81 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		914FD7B12844A9AE00D71A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		914FD7BA2844A9BD00D71A81 /* fct_push.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fct_push.entitlements; sourceTree = "<group>"; };
+		91837248289D3CD80053C40B /* fct_template.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = fct_template.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		91837249289D3CD80053C40B /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		9183724B289D3CD80053C40B /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		9183724E289D3CD80053C40B /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		91837251289D3CD80053C40B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		91837253289D3CD80053C40B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +110,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91837245289D3CD80053C40B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9183724C289D3CD80053C40B /* UserNotificationsUI.framework in Frameworks */,
+				9183724A289D3CD80053C40B /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C146EB1CF9000F007C117D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +135,8 @@
 			children = (
 				D81324CFE935C3EC2EB12254 /* Pods_Runner.framework */,
 				BDDA6BB7963071C776038DBA /* Pods_fct_push.framework */,
+				91837249289D3CD80053C40B /* UserNotifications.framework */,
+				9183724B289D3CD80053C40B /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,6 +149,16 @@
 				914FD7B12844A9AE00D71A81 /* Info.plist */,
 			);
 			path = fct_push;
+			sourceTree = "<group>";
+		};
+		9183724D289D3CD80053C40B /* fct_template */ = {
+			isa = PBXGroup;
+			children = (
+				9183724E289D3CD80053C40B /* NotificationViewController.swift */,
+				91837250289D3CD80053C40B /* MainInterface.storyboard */,
+				91837253289D3CD80053C40B /* Info.plist */,
+			);
+			path = fct_template;
 			sourceTree = "<group>";
 		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
@@ -138,6 +178,7 @@
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				914FD7AE2844A9AE00D71A81 /* fct_push */,
+				9183724D289D3CD80053C40B /* fct_template */,
 				97C146EF1CF9000F007C117D /* Products */,
 				AC7DB5479F4C97AC57BA7896 /* Pods */,
 				656B0B8E0BAA7A484CACC494 /* Frameworks */,
@@ -149,6 +190,7 @@
 			children = (
 				97C146EE1CF9000F007C117D /* Runner.app */,
 				914FD7AD2844A9AE00D71A81 /* fct_push.appex */,
+				91837248289D3CD80053C40B /* fct_template.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +245,23 @@
 			productReference = 914FD7AD2844A9AE00D71A81 /* fct_push.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		91837247289D3CD80053C40B /* fct_template */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9183725A289D3CD80053C40B /* Build configuration list for PBXNativeTarget "fct_template" */;
+			buildPhases = (
+				91837244289D3CD80053C40B /* Sources */,
+				91837245289D3CD80053C40B /* Frameworks */,
+				91837246289D3CD80053C40B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = fct_template;
+			productName = fct_template;
+			productReference = 91837248289D3CD80053C40B /* fct_template.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		97C146ED1CF9000F007C117D /* Runner */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
@@ -221,6 +280,7 @@
 			);
 			dependencies = (
 				914FD7B32844A9AE00D71A81 /* PBXTargetDependency */,
+				91837255289D3CD80053C40B /* PBXTargetDependency */,
 			);
 			name = Runner;
 			productName = Runner;
@@ -233,12 +293,15 @@
 		97C146E61CF9000F007C117D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					914FD7AC2844A9AE00D71A81 = {
 						CreatedOnToolsVersion = 13.3;
+					};
+					91837247289D3CD80053C40B = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -261,6 +324,7 @@
 			targets = (
 				97C146ED1CF9000F007C117D /* Runner */,
 				914FD7AC2844A9AE00D71A81 /* fct_push */,
+				91837247289D3CD80053C40B /* fct_template */,
 			);
 		};
 /* End PBXProject section */
@@ -270,6 +334,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91837246289D3CD80053C40B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91837252289D3CD80053C40B /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +459,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91837244289D3CD80053C40B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9183724F289D3CD80053C40B /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97C146EA1CF9000F007C117D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,9 +484,22 @@
 			target = 914FD7AC2844A9AE00D71A81 /* fct_push */;
 			targetProxy = 914FD7B22844A9AE00D71A81 /* PBXContainerItemProxy */;
 		};
+		91837255289D3CD80053C40B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91837247289D3CD80053C40B /* fct_template */;
+			targetProxy = 91837254289D3CD80053C40B /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		91837250289D3CD80053C40B /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91837251289D3CD80053C40B /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -488,6 +581,7 @@
 				DEVELOPMENT_TEAM = P23JK9V8BF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +613,7 @@
 				INFOPLIST_FILE = fct_push/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = fct_push;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,7 +652,7 @@
 				INFOPLIST_FILE = fct_push/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = fct_push;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -594,7 +688,7 @@
 				INFOPLIST_FILE = fct_push/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = fct_push;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +697,111 @@
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clevertap.fct.fct-push";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Profile;
+		};
+		91837257289D3CD80053C40B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P23JK9V8BF;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = fct_template/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = fct_template;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clevertap.fct.fct-template";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91837258289D3CD80053C40B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P23JK9V8BF;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = fct_template/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = fct_template;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clevertap.fct.fct-template";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		91837259289D3CD80053C40B /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P23JK9V8BF;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = fct_template/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = fct_template;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clevertap.fct.fct-template";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -730,6 +929,7 @@
 				DEVELOPMENT_TEAM = P23JK9V8BF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -755,6 +955,7 @@
 				DEVELOPMENT_TEAM = P23JK9V8BF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -776,6 +977,16 @@
 				914FD7B62844A9AE00D71A81 /* Debug */,
 				914FD7B72844A9AE00D71A81 /* Release */,
 				914FD7B82844A9AE00D71A81 /* Profile */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9183725A289D3CD80053C40B /* Build configuration list for PBXNativeTarget "fct_template" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91837257289D3CD80053C40B /* Debug */,
+				91837258289D3CD80053C40B /* Release */,
+				91837259289D3CD80053C40B /* Profile */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

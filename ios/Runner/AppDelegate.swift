@@ -10,7 +10,8 @@ import clevertap_plugin
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    GeneratedPluginRegistrant.register(with: self)
+      GeneratedPluginRegistrant.register(with: self)
+
       CleverTap.autoIntegrate() // integrate CleverTap SDK using the autoIntegrate option
       CleverTapPlugin.sharedInstance()?.applicationDidLaunch(options: launchOptions)
       UNUserNotificationCenter.current().delegate = self
@@ -32,5 +33,16 @@ import clevertap_plugin
         
         CleverTap.sharedInstance()?.handleNotification(withData: notification.request.content.userInfo, openDeepLinksInForeground: true)
         completionHandler([.badge, .sound, .alert])
+    }
+    
+    override func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                    didReceive response: UNNotificationResponse,
+                                    withCompletionHandler completionHandler: @escaping () -> Void) {
+            
+        
+        CleverTap.sharedInstance()?.handleNotification(withData: response.notification.request.content.userInfo)
+        
+        completionHandler()
+            
     }
 }
