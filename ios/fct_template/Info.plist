@@ -2,32 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Allow Arbitrary Loads</key>
-	<true/>
-	<key>Application Application App Transport Security Settings</key>
-	<dict/>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>CFBundleDisplayName</key>
-	<string>NotificationContent</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundlePackageType</key>
-	<string>XPC!</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
+	<key>Application App Transport Security Settings</key>
+	<dict>
+		<key>Allow Arbitrary Loads</key>
+		<true/>
+	</dict>
 	<key>CleverTapAccountID</key>
-	<string>6ZR-965-446Z</string>
+	<string>TEST-RZ7-Z94-K95Z</string>
 	<key>CleverTapToken</key>
-	<string>56c-216</string>
+	<string>TEST-4c1-a12</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
@@ -38,6 +21,8 @@
 			<true/>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
 			<real>0.10000000000000001</real>
+			<key>UNNotificationExtensionUserInteractionEnabled</key>
+			<string>1</string>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
 		<string>MainInterface</string>
