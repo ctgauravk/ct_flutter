@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		1D163E30432854E051E5C158 /* Pods_fct_template.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82674CB36DA20C3FBC8A43C3 /* Pods_fct_template.framework */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		7ED28145FAB4ECF884BE89DE /* Pods_fct_push.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDA6BB7963071C776038DBA /* Pods_fct_push.framework */; };
@@ -68,15 +69,20 @@
 
 /* Begin PBXFileReference section */
 		04B2D8B46E0CF12C2827F836 /* Pods-fct_push.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fct_push.release.xcconfig"; path = "Target Support Files/Pods-fct_push/Pods-fct_push.release.xcconfig"; sourceTree = "<group>"; };
+		0B73FB6C6948170D7F572EE9 /* Pods-fct_template.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fct_template.profile.xcconfig"; path = "Target Support Files/Pods-fct_template/Pods-fct_template.profile.xcconfig"; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		2B76A8FC271BC70F7DA61305 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		36386DE65B1182632D0D79ED /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		4AF48894F14FF54161771160 /* Pods-fct_template.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fct_template.release.xcconfig"; path = "Target Support Files/Pods-fct_template/Pods-fct_template.release.xcconfig"; sourceTree = "<group>"; };
 		634FDE06FD6F3F3CBBDBCDEE /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		74012B72DB92247375CE5AFA /* Pods-fct_template.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fct_template.debug.xcconfig"; path = "Target Support Files/Pods-fct_template/Pods-fct_template.debug.xcconfig"; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
+		82674CB36DA20C3FBC8A43C3 /* Pods_fct_template.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fct_template.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91296223296574BB0062E247 /* fct_template.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fct_template.entitlements; sourceTree = "<group>"; };
 		914FD7A828449B8400D71A81 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		914FD7AD2844A9AE00D71A81 /* fct_push.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = fct_push.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		914FD7AF2844A9AE00D71A81 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			files = (
 				9183724C289D3CD80053C40B /* UserNotificationsUI.framework in Frameworks */,
 				9183724A289D3CD80053C40B /* UserNotifications.framework in Frameworks */,
+				1D163E30432854E051E5C158 /* Pods_fct_template.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +144,7 @@
 				BDDA6BB7963071C776038DBA /* Pods_fct_push.framework */,
 				91837249289D3CD80053C40B /* UserNotifications.framework */,
 				9183724B289D3CD80053C40B /* UserNotificationsUI.framework */,
+				82674CB36DA20C3FBC8A43C3 /* Pods_fct_template.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 		9183724D289D3CD80053C40B /* fct_template */ = {
 			isa = PBXGroup;
 			children = (
+				91296223296574BB0062E247 /* fct_template.entitlements */,
 				9183724E289D3CD80053C40B /* NotificationViewController.swift */,
 				91837250289D3CD80053C40B /* MainInterface.storyboard */,
 				91837253289D3CD80053C40B /* Info.plist */,
@@ -220,6 +229,9 @@
 				9BD5EB74C6BFC65A3DC3DC8D /* Pods-fct_push.debug.xcconfig */,
 				04B2D8B46E0CF12C2827F836 /* Pods-fct_push.release.xcconfig */,
 				BF799AF28EE41BE20F3107DB /* Pods-fct_push.profile.xcconfig */,
+				74012B72DB92247375CE5AFA /* Pods-fct_template.debug.xcconfig */,
+				4AF48894F14FF54161771160 /* Pods-fct_template.release.xcconfig */,
+				0B73FB6C6948170D7F572EE9 /* Pods-fct_template.profile.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -249,6 +261,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9183725A289D3CD80053C40B /* Build configuration list for PBXNativeTarget "fct_template" */;
 			buildPhases = (
+				9A9134DBD3F8610F3712759F /* [CP] Check Pods Manifest.lock */,
 				91837244289D3CD80053C40B /* Sources */,
 				91837245289D3CD80053C40B /* Frameworks */,
 				91837246289D3CD80053C40B /* Resources */,
@@ -386,6 +399,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+		};
+		9A9134DBD3F8610F3712759F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fct_template-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		C2A128426C6A7B88E47E4E03 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -581,7 +616,7 @@
 				DEVELOPMENT_TEAM = P23JK9V8BF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -613,7 +648,7 @@
 				INFOPLIST_FILE = fct_push/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = fct_push;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -652,7 +687,7 @@
 				INFOPLIST_FILE = fct_push/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = fct_push;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -688,7 +723,7 @@
 				INFOPLIST_FILE = fct_push/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = fct_push;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -707,6 +742,7 @@
 		};
 		91837257289D3CD80053C40B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74012B72DB92247375CE5AFA /* Pods-fct_template.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -714,6 +750,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = fct_template/fct_template.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P23JK9V8BF;
@@ -744,6 +781,7 @@
 		};
 		91837258289D3CD80053C40B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AF48894F14FF54161771160 /* Pods-fct_template.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -751,6 +789,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = fct_template/fct_template.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P23JK9V8BF;
@@ -778,6 +817,7 @@
 		};
 		91837259289D3CD80053C40B /* Profile */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B73FB6C6948170D7F572EE9 /* Pods-fct_template.profile.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -785,6 +825,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = fct_template/fct_template.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P23JK9V8BF;
@@ -929,7 +970,7 @@
 				DEVELOPMENT_TEAM = P23JK9V8BF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -955,7 +996,7 @@
 				DEVELOPMENT_TEAM = P23JK9V8BF;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -47,3 +47,13 @@ target 'fct_push' do
   pod 'CleverTap-iOS-SDK'#, '~> 3.9.4'
   pod 'CTNotificationService'
 end
+
+target 'fct_template' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ct_integration
+  pod 'CleverTap-iOS-SDK'#, '~> 3.9.4'
+  pod 'CTNotificationContent'
+
+end
