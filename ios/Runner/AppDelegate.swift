@@ -12,16 +12,38 @@ import clevertap_plugin
   ) -> Bool {
       GeneratedPluginRegistrant.register(with: self)
 
+      registerPush()
       CleverTap.autoIntegrate() // integrate CleverTap SDK using the autoIntegrate option
       CleverTapPlugin.sharedInstance()?.applicationDidLaunch(options: launchOptions)
       UNUserNotificationCenter.current().delegate = self
+      
+      let defaults = UserDefaults.init(suiteName: "group.flutter.fct")
+      
+      let email2 = defaults?.value(forKey: "email")
+
+      print("email2 \(email2)")
+      
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
-    
+
+    private func registerPush() {
+        UNUserNotificationCenter.current().delegate = self
+
+        // request permissions
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) {
+            (granted, error) in
+            if (granted) {
+                DispatchQueue.main.async {
+                   UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+    }
+
     private func application(application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        print(token)
+        print("token",token)
         CleverTap.sharedInstance()?.setPushToken(deviceToken as Data)
     }
     
