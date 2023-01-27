@@ -71,6 +71,8 @@ PODS:
   - SDWebImage (5.14.2):
     - SDWebImage/Core (= 5.14.2)
   - SDWebImage/Core (5.14.2)
+  - shared_preference_app_group (1.0.0):
+    - Flutter
 
 DEPENDENCIES:
   - CleverTap-iOS-SDK
@@ -79,6 +81,7 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `Flutter`)
+  - shared_preference_app_group (from `.symlinks/plugins/shared_preference_app_group/ios`)
 
 SPEC REPOS:
   trunk:
@@ -104,6 +107,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_messaging/ios"
   Flutter:
     :path: Flutter
+  shared_preference_app_group:
+    :path: ".symlinks/plugins/shared_preference_app_group/ios"
 
 SPEC CHECKSUMS:
   CleverTap-iOS-SDK: edae0f34d6478c85e864256f5a06051687029aa3
@@ -122,7 +127,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   SDWebImage: b9a731e1d6307f44ca703b3976d18c24ca561e84
+  shared_preference_app_group: 83d2284f9e747839c40fc281403b5b60d83e2989
 
 PODFILE CHECKSUM: 95871d64a4b4250ce0977e8b9e5cad0d3c8d9277
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.3

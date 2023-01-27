@@ -4,6 +4,7 @@ import 'package:clevertap_plugin/clevertap_plugin.dart';
 import 'package:flutter/services.dart';
 // import 'package:intl/intl.dart';
 // import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:shared_preference_app_group/shared_preference_app_group.dart';
 
 GlobalKey globalKey = GlobalKey();
 
@@ -42,16 +43,22 @@ class _MyHomePageState extends State<MyHomePage> {
   var optOut = false;
   var offLine = false;
   var enableDeviceNetworkingInfo = false;
+  String appGroupID = 'group.flutter.fct';
 
   //for killed state notification clicked
   static const platform = MethodChannel("myChannel");
 
+  Map<String, dynamic> myParams = {
+    'email': 'null'
+  };
   @override
   void initState() {
     CleverTapPlugin.setDebugLevel(3);
     initPlatformState();
     activateCleverTapFlutterPluginHandlers();
     CleverTapPlugin.createNotificationChannelGroup("groupId", "groupName");
+
+    SharedPreferenceAppGroup.setAppGroup(appGroupID);
 
     CleverTapPlugin.createNotificationChannel(
         "gt", "Test Notification Flutter", "Flutter Test", 5, true);
@@ -72,6 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
       'MSG-whatsapp': true,
       'DOB':'23-06-2001'
     });
+    SharedPreferenceAppGroup.setString('email', 'test28@test.com');
+    getMyParams();
+
     //For Killed State Handler
     platform.setMethodCallHandler(nativeMethodCallHandler);
 
@@ -79,6 +89,26 @@ class _MyHomePageState extends State<MyHomePage> {
     CleverTapPlugin.initializeInbox();
     var initURl = CleverTapPlugin.getInitialUrl();
     print("1111111111111111 $initURl");
+
+
+  }
+
+  Future<void> getMyParams() async {
+     String stringValue = await SharedPreferenceAppGroup.get('email');
+
+    this.myParams = {
+      'email': stringValue
+    };
+
+    print("111111 from app groups $stringValue");
+
+    String text = '';
+    for (String key in this.myParams.keys) {
+      text += '$key = ${this.myParams[key]}\n';
+      print("11111 inside for loop $text");
+    }
+
+
   }
 
   Future<void> initPlatformState() async {

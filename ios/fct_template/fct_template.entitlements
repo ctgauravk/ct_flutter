@@ -4,13 +4,5 @@
 <dict>
 	<key>aps-environment</key>
 	<string>development</string>
-	<key>com.apple.developer.associated-domains</key>
-	<array>
-		<string>applinks:samplewebintegration.000webhostapp.com</string>
-	</array>
-	<key>com.apple.security.application-groups</key>
-	<array>
-		<string>group.flutter.fct</string>
-	</array>
 </dict>
 </plist>

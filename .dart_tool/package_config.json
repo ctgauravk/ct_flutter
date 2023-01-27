@@ -152,6 +152,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "shared_preference_app_group",
+      "rootUri": "file:///Users/gaurav.singh/fdev/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preference_app_group-1.0.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/gaurav.singh/fdev/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
