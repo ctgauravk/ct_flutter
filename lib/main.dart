@@ -51,8 +51,15 @@ class _MyHomePageState extends State<MyHomePage> {
     CleverTapPlugin.setDebugLevel(3);
     initPlatformState();
     activateCleverTapFlutterPluginHandlers();
+    CleverTapPlugin.createNotificationChannelGroup("groupId", "groupName");
+
     CleverTapPlugin.createNotificationChannel(
         "gt", "Test Notification Flutter", "Flutter Test", 5, true);
+    CleverTapPlugin.createNotificationChannelWithGroupId(
+        "gtid1", "Test Notification Flutter", "Flutter Test", 5, "groupId", true);
+
+    CleverTapPlugin.createNotificationChannelWithGroupId(
+        "gtid2", "Test Notification Flutter", "Flutter Test", 5, "groupId", true);
     var stuff = ["bags", "shoes"];
     CleverTapPlugin.onUserLogin({
       'Name': 'Test 28',
@@ -96,6 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
     _clevertapPlugin.setCleverTapInAppNotificationButtonClickedHandler(
         inAppNotificationButtonClicked);
   }
+
+  // void inAppNotificationButtonClicked(Map<String, dynamic> map) {
+  //   setState(() {
+  //     print("inAppNotificationButtonClicked called = ${map.toString()}");
+  //   });
+  // }
 
   //For Push Notification Clicked Payload in FG and BG state
   void pushClickedPayloadReceived(Map<String, dynamic> map) {

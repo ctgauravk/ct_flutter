@@ -1,4 +1,4 @@
-package com.example.fct;
+package com.clevertap.fct;
 
 import android.app.ActivityManager;
 import android.app.KeyguardManager;

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fct">
+    package="com.clevertap.fct">
 
     <!-- Required to allow the app to send events and user profile information -->
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -46,11 +46,11 @@
 
        <meta-data
            android:name="CLEVERTAP_ACCOUNT_ID"
-       android:value="TEST-5WK-85W-K56Z"/>
+       android:value="TEST-RZ7-Z94-K95Z"/>
 <!--       android:value="W4W-5ZR-4K6Z"/>-->
        <meta-data
            android:name="CLEVERTAP_TOKEN"
-           android:value="TEST-05b-305"/>
+           android:value="TEST-4c1-a12"/>
 <!--       android:value="215–040"/>-->
 
 

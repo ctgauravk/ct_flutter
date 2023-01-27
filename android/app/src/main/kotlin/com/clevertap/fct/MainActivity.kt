@@ -1,4 +1,4 @@
-package com.example.fct
+package com.clevertap.fct
 
 import android.content.Intent
 import android.os.Build
@@ -12,9 +12,9 @@ import io.flutter.embedding.android.FlutterActivity
 class MainActivity: FlutterActivity() {
 
     var cleverTapDefaultInstance: CleverTapAPI? = null
-//    override fun onCreate(savedInstanceState: Bundle?) {
-        TODO("Not yet implemented")
-//    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+     }
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)

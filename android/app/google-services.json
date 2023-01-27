@@ -133,7 +133,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:806344482105:android:0f5403c6a7f7b5a4195ce8",
         "android_client_info": {
-          "package_name": "com.example.fct"
+          "package_name": "com.clevertap.fct"
         }
       },
       "oauth_client": [
