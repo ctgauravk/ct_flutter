@@ -14,6 +14,7 @@ class MainActivity: FlutterActivity() {
     var cleverTapDefaultInstance: CleverTapAPI? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
      }
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
@@ -21,13 +22,13 @@ class MainActivity: FlutterActivity() {
         cleverTapDefaultInstance = CleverTapAPI.getDefaultInstance(applicationContext)
 
     }
-//    override fun onNewIntent(intent: Intent?) {
-//        super.onNewIntent(intent)
-//
-//        Log.e("load", "called")
-//        // On Android 12, Raise notification clicked event when Activity is already running in activity backstack
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-//            cleverTapDefaultInstance?.pushNotificationClickedEvent(intent!!.extras)
-//        }
-//    }
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+
+        Log.e("load", "called")
+        // On Android 12, Raise notification clicked event when Activity is already running in activity backstack
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            cleverTapDefaultInstance?.pushNotificationClickedEvent(intent!!.extras)
+        }
+    }
 }

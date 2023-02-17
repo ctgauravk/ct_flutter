@@ -53,6 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
   };
   @override
   void initState() {
+    super.initState();
+
     CleverTapPlugin.setDebugLevel(3);
     initPlatformState();
     activateCleverTapFlutterPluginHandlers();
@@ -61,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     SharedPreferenceAppGroup.setAppGroup(appGroupID);
 
     CleverTapPlugin.createNotificationChannel(
-        "gt", "Test Notification Flutter", "Flutter Test", 5, true);
+        "euro", "Test Notification Flutter", "Flutter Test", 5, true);
     CleverTapPlugin.createNotificationChannelWithGroupId(
         "gtid1", "Test Notification Flutter", "Flutter Test", 5, "groupId", true);
 
@@ -85,7 +87,6 @@ class _MyHomePageState extends State<MyHomePage> {
     //For Killed State Handler
     platform.setMethodCallHandler(nativeMethodCallHandler);
 
-    super.initState();
     CleverTapPlugin.initializeInbox();
     var initURl = CleverTapPlugin.getInitialUrl();
     print("1111111111111111 $initURl");
@@ -329,22 +330,22 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void getAdUnits() async {
-    // var displayUnits = await CleverTapPlugin.getAllDisplayUnits();
-    // var a = "";
-    // for (var i in displayUnits) {
-    //   a = i;
-    // }
-    // var decodedJson = json.decode(a);
-    // var jsonValue = json.decode(decodedJson['content']);
-    // debugPrint("value = " + jsonValue['message']);
-    // for (var i = 0; i < displayUnits.length; i++) {
-    //   var units = displayUnits[i];
-    //   displayText(units);
-    //   // debugPrint("units= " + units.toString());
-    // }
-    // for (var element in displayUnits) {
-    //   debugPrint("units= " + element[1].toString());
-    // }
+    var displayUnits = await CleverTapPlugin.getAllDisplayUnits();
+    var a = "";
+    for (var i in displayUnits!) {
+      a = i;
+    }
+    var decodedJson = json.decode(a);
+    var jsonValue = json.decode(decodedJson['content']);
+    debugPrint("value = " + jsonValue['message']);
+    for (var i = 0; i < displayUnits.length; i++) {
+      var units = displayUnits[i];
+      displayText(units);
+      // debugPrint("units= " + units.toString());
+    }
+    for (var element in displayUnits) {
+      debugPrint("units= " + element[1].toString());
+    }
   }
 
   void displayText(units) {

@@ -4,8 +4,10 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import com.clevertap.android.pushtemplates.PushTemplateNotificationHandler
 import com.clevertap.android.sdk.ActivityLifecycleCallback
 import com.clevertap.android.sdk.CleverTapAPI
+import com.clevertap.android.sdk.interfaces.NotificationHandler
 import com.clevertap.android.sdk.pushnotification.CTPushNotificationListener
 import io.flutter.app.FlutterApplication
 import io.flutter.embedding.engine.FlutterEngine
@@ -28,6 +30,7 @@ class AppFCT : FlutterApplication(), CTPushNotificationListener,
         super.onCreate()
 
         CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.DEBUG);
+        CleverTapAPI.setNotificationHandler(PushTemplateNotificationHandler() as NotificationHandler)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CleverTapAPI.createNotificationChannelGroup(this, "YourGroupId", "YourGroupName")
         }
@@ -39,9 +42,12 @@ class AppFCT : FlutterApplication(), CTPushNotificationListener,
             NotificationManager.IMPORTANCE_MAX,
             true
         )
+
+        CleverTapAPI.getDefaultInstance(applicationContext)?.apply {
+            ctPushNotificationListener = this@AppFCT
+        }
         val cleverTapAPI = CleverTapAPI.getDefaultInstance(applicationContext)
-        cleverTapAPI!!.ctPushNotificationListener = this
-//        FlutterFirebaseMessagingService.setPluginRegistrant(this);
+ //        FlutterFirebaseMessagingService.setPluginRegistrant(this);
 //        FlutterFirebaseMessagingBackgroundService.setPluginRegistrant(this);
 //        FlutterFirebaseMessagingBackgroundS
     }
