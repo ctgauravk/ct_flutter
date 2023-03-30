@@ -49,6 +49,8 @@ import clevertap_plugin
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print("token",token)
         CleverTap.sharedInstance()?.setPushToken(deviceToken as Data)
+        
+        
     }
     
     override func userNotificationCenter(
@@ -57,7 +59,7 @@ import clevertap_plugin
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 //        completionHandler([.banner, .badge, .sound])
         
-        CleverTap.sharedInstance()?.handleNotification(withData: notification.request.content.userInfo, openDeepLinksInForeground: true)
+//         CleverTap.sharedInstance()?.handleNotification(withData: notification.request.content.userInfo, openDeepLinksInForeground: true)
         completionHandler([.badge, .sound, .alert])
     }
     
@@ -66,7 +68,7 @@ import clevertap_plugin
                                     withCompletionHandler completionHandler: @escaping () -> Void) {
             
         
-        CleverTap.sharedInstance()?.handleNotification(withData: response.notification.request.content.userInfo)
+//         CleverTap.sharedInstance()?.handleNotification(withData: response.notification.request.content.userInfo)
         
         completionHandler()
             

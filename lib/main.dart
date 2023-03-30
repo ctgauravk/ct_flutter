@@ -14,6 +14,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  static const methodChannelName = "nativeMethodCallHandler";
 
   // This widget is the root of your application.
   @override
@@ -76,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'Email': 'test28@test.com',
       'Phone': '+14364532109',
       'MSG-email': true,
-      'MSG-push': true,
+      'MSG-push': false,
       'MSG-sms': true,
       'MSG-whatsapp': true,
       'DOB':'23-06-2001'
@@ -143,16 +144,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //For Push Notification Clicked Payload in FG and BG state
   void pushClickedPayloadReceived(Map<String, dynamic> map) {
-    debugPrint("pushClickedPayloadReceived called");
+    print("pushClickedPayloadReceived called");
     setState(() async {
       var data = jsonEncode(map);
-      debugPrint("on Push Click Payload = $data");
+      print("on Push Click Payload = $data");
     });
   }
 
   //For Push Notification Clicked Payload in killed state
   Future<dynamic> nativeMethodCallHandler(MethodCall methodCall) async {
-    debugPrint("killed state called!");
+    print("killed state called!");
     switch (methodCall.method) {
       case "onPushNotificationClicked":
         debugPrint("onPushNotificationClicked in dart");
@@ -175,8 +176,13 @@ class _MyHomePageState extends State<MyHomePage> {
       List? displayUnits = await CleverTapPlugin.getAllDisplayUnits();
       debugPrint("inboxDidInitialize called");
       debugPrint("Display Units are " + displayUnits.toString());
+      getAdUnits();
+
     });
   }
+
+  //{adUnits: [{content: [{action: {url: {android: {og: , text: , replacements: }, ios: {og: , text: , replacements: }}, hasUrl: false}, isMediaSourceRecommended: false, isIconSourceRecommended: false, title: {color: #434761, replacements: Title 1, og: , text: Title 1}, message: {color: #434761, replacements: Message 1, og: , text: Message 1}, media: {}, key: 7615866422, recommendedText: {og: , text: , replacements: }, recommendedIconText: {og: , text: , replacements: }, icon: {}}], custom_kv: {onekey: onevalue}, wzrk_pivot: wzrk_default, bg: #ffffff, ti: 1674036318, type: simple, wzrk_id: 1674036318_20230317}]}
+  //[{wzrk_id: 1674036318_20230317, bg: #ffffff, ti: 1674036318, wzrk_pivot: wzrk_default, custom_kv: {"onekey":"onevalue"}, type: simple, content: [{"key":7615866422,"message":{"text":"Message 1","color":"#434761","replacements":"Message 1","og":""},"title":{"text":"Title 1","color":"#434761","replacements":"Title 1","og":""},"action":{"url":{"android":{"text":"","replacements":"","og":""},"ios":{"text":"","replacements":"","og":""}},"hasUrl":false},"media":{},"icon":{},"isMediaSourceRecommended":false,"isIconSourceRecommended":false,"recommendedText":{"text":"","replacements":"","og":""},"recommendedIconText":{"text":"","replacements":"","og":""}}]}]
 
   @override
   Widget build(BuildContext context) {
@@ -275,6 +281,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'Stuff': 'Shirt',
     };
     // CleverTapPlugin.recordEvent("ProductF Event", eventData);
+    // CleverTapPlugin.recordEvent("ProductF Event", eventData);
     // Button Click
     CleverTapPlugin.recordEvent("Button Click", eventData);
     // showToast("ProductF Event Clicked!", context: context);
@@ -326,13 +333,14 @@ class _MyHomePageState extends State<MyHomePage> {
       '': '',
     };
     CleverTapPlugin.recordEvent("Native Display Event", eventData);
-    getAdUnits();
   }
 
   void getAdUnits() async {
     var displayUnits = await CleverTapPlugin.getAllDisplayUnits();
+    print("222222222222222222");
     var a = "";
     for (var i in displayUnits!) {
+      print("111111111111111 " + i.toString());
       a = i;
     }
     var decodedJson = json.decode(a);
