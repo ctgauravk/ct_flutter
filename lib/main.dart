@@ -1,19 +1,119 @@
 import 'dart:convert';
+import 'dart:ui';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:clevertap_plugin/clevertap_plugin.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // import 'package:intl/intl.dart';
 // import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:shared_preference_app_group/shared_preference_app_group.dart';
 
 GlobalKey globalKey = GlobalKey();
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  final NotificationAppLaunchDetails? notificationAppLaunchDetails =
+      await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+  final didNotificationLaunchApp =
+      notificationAppLaunchDetails?.didNotificationLaunchApp ?? false;
+  if (didNotificationLaunchApp) {
+    var payload = notificationAppLaunchDetails!.notificationResponse?.payload.toString();
+    print("testong breakpoint");
+    print("${payload!} testing payload");
+    List<String> str = payload.replaceAll(
+        "{", "").replaceAll("}", "").split(",");
+    Map<String, dynamic> result = {};
+    for (int i = 0; i < str.length; i++) {
+      List<String> s = str[i].split(":");
+      result.putIfAbsent(s[0].trim(), () => s[1].trim());
+    }
+    print(result);
+    CleverTapPlugin.pushNotificationClickedEvent(result);
+  }
+  runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
+
+Future<void> init() async {
+
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+  var initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher'); // <- default icon name is @mipmap/ic_launcher
+  // var initializationSettingsIOS = IOSInitializationSettings(onDidReceiveLocalNotification: onDidReceiveLocalNotification);
+  var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
+
+  flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: onselectnotificaion,
+      onDidReceiveBackgroundNotificationResponse: onselectnotificaion
+  );
+}
+Future<dynamic> onselectnotificaion(NotificationResponse notificationResponse) async {
+
+
+  List<String> str = notificationResponse.payload!.replaceAll("{","").replaceAll("}","").split(",");
+  Map<String,dynamic> result = {};
+  for(int i=0;i<str.length;i++){
+    List<String> s = str[i].split(":");
+    result.putIfAbsent(s[0].trim(), () => s[1].trim());
+  }
+  print(result);
+
+  CleverTapPlugin.pushNotificationClickedEvent(result);
+
+}
+
+@pragma('vm:entry-point')
+//background notification
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
+  print('Handling a background message ${message.messageId}');
+  showNotification(message);
+  // CleverTapPlugin.createNotification(jsonEncode(message.data));
+  print('on message'+message.data["nm"]+"working");
+}
+
+String? selectedNotificationPayload;
+
+void showNotification(RemoteMessage message) async {
+
+  var title = message.data["nt"];
+  var msge = message.data["nm"];
+  var payload =message.data;
+  var android = const AndroidNotificationDetails(
+      'fluttertest', 'channel NAME',
+      priority: Priority.max, importance: Importance.max);
+
+  var platform = NotificationDetails(android: android);
+  await flutterLocalNotificationsPlugin.show(0, title, msge, platform,
+      payload: payload.toString());
+
+  CleverTapPlugin.pushNotificationViewedEvent(message.data);
+}
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyState createState() => _MyState();
+}
+class _MyState extends State<MyApp> {
+  // const _MyState({Key? key}) : super(key: key);
   static const methodChannelName = "nativeMethodCallHandler";
 
   // This widget is the root of your application.
@@ -61,27 +161,41 @@ class _MyHomePageState extends State<MyHomePage> {
     activateCleverTapFlutterPluginHandlers();
     CleverTapPlugin.createNotificationChannelGroup("groupId", "groupName");
 
+
+
     SharedPreferenceAppGroup.setAppGroup(appGroupID);
+
 
     CleverTapPlugin.createNotificationChannel(
         "euro", "Test Notification Flutter", "Flutter Test", 5, true);
     CleverTapPlugin.createNotificationChannelWithGroupId(
         "gtid1", "Test Notification Flutter", "Flutter Test", 5, "groupId", true);
 
+    var pushPrimerJSON = {
+      'inAppType': 'alert',
+      'titleText': 'Get Notified',
+      'messageText': 'Enable Notification permission',
+      'followDeviceOrientation': true,
+      'positiveBtnText': 'Allow',
+      'negativeBtnText': 'Cancel',
+      'fallbackToSettings': true
+    };
+    CleverTapPlugin.promptPushPrimer(pushPrimerJSON);
+
     CleverTapPlugin.createNotificationChannelWithGroupId(
         "gtid2", "Test Notification Flutter", "Flutter Test", 5, "groupId", true);
     var stuff = ["bags", "shoes"];
-    CleverTapPlugin.onUserLogin({
-      'Name': 'Test 28',
-      'Identity': 'test28',
-      'Email': 'test28@test.com',
-      'Phone': '+14364532109',
-      'MSG-email': true,
-      'MSG-push': false,
-      'MSG-sms': true,
-      'MSG-whatsapp': true,
-      'DOB':'23-06-2001'
-    });
+    // CleverTapPlugin.onUserLogin({
+    //   'Name': 'Test 28',
+    //   'Identity': 'test28',
+    //   'Email': 'test28@test.com',
+    //   'Phone': '+14364532109',
+    //   'MSG-email': true,
+    //   'MSG-push': false,
+    //   'MSG-sms': true,
+    //   'MSG-whatsapp': true,
+    //   'DOB':'23-06-2001'
+    // });
     SharedPreferenceAppGroup.setString('email', 'test28@test.com');
     getMyParams();
 
@@ -90,24 +204,46 @@ class _MyHomePageState extends State<MyHomePage> {
 
     CleverTapPlugin.initializeInbox();
     var initURl = CleverTapPlugin.getInitialUrl();
-    print("1111111111111111 $initURl");
+    print("URL = $initURl");
 
+    //foreground notification
+    FirebaseMessaging.instance
+        .getInitialMessage()
+        .then((RemoteMessage? message) async {
+      print("This is working+++++"+jsonEncode(message));
+
+      //CleverTapPlugin.createNotification(jsonEncode(message?.data));
+      showNotification(message!);
+      Navigator.pushNamed(
+        context,
+        '/message',
+        //   arguments: MessageArguments(message, true),
+      );
+    });
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      showNotification(message);
+      print(jsonEncode(message.data));
+      //   CleverTapPlugin.createNotification(jsonEncode(message.data));
+      print(message.data);
+
+    });
 
   }
 
   Future<void> getMyParams() async {
-     String stringValue = await SharedPreferenceAppGroup.get('email');
+    String stringValue = await SharedPreferenceAppGroup.get('email');
 
     this.myParams = {
       'email': stringValue
     };
 
-    print("111111 from app groups $stringValue");
+    print("From app groups $stringValue");
 
     String text = '';
     for (String key in this.myParams.keys) {
       text += '$key = ${this.myParams[key]}\n';
-      print("11111 inside for loop $text");
+      print("Inside for loop $text");
     }
 
 
@@ -118,8 +254,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void inAppNotificationButtonClicked(Map<String, dynamic>? map) {
-    this.setState(() {
-      print("inApp12345678 called = ${map.toString()}");
+    setState(() {
+      print("InApp called = ${map.toString()}");
     });
   }
 
@@ -136,18 +272,25 @@ class _MyHomePageState extends State<MyHomePage> {
         inAppNotificationButtonClicked);
   }
 
-  // void inAppNotificationButtonClicked(Map<String, dynamic> map) {
-  //   setState(() {
-  //     print("inAppNotificationButtonClicked called = ${map.toString()}");
-  //   });
-  // }
 
   //For Push Notification Clicked Payload in FG and BG state
   void pushClickedPayloadReceived(Map<String, dynamic> map) {
-    print("pushClickedPayloadReceived called");
-    setState(() async {
+    // print("pushClickedPayloadReceived called");
+    // setState(() async {
+    //   var data = jsonEncode(map);
+    //   print("on Push Click Payload =${map['app_title']}");
+    //
+    //   _title = map["app_title"];
+    //
+    // });
+    setState(() {
+      Future.delayed(const Duration(seconds: 7)).then((val) {
+        // Your logic here
+        // _title = map["app_title"];
+        print("on Push Click Payload =${map['app_title']}");
+      });
       var data = jsonEncode(map);
-      print("on Push Click Payload = $data");
+      print("CleverTap on Push Click Payload = $data");
     });
   }
 
@@ -158,6 +301,9 @@ class _MyHomePageState extends State<MyHomePage> {
       case "onPushNotificationClicked":
         debugPrint("onPushNotificationClicked in dart");
         debugPrint("Clicked Payload in Killed state: ${methodCall.arguments}");
+        setState(() {
+          // _title = methodCall.arguments["app_title"];
+        });
         return "This is from android!!";
       default:
         return "Nothing";
@@ -175,14 +321,11 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() async {
       List? displayUnits = await CleverTapPlugin.getAllDisplayUnits();
       debugPrint("inboxDidInitialize called");
-      debugPrint("Display Units are " + displayUnits.toString());
+      debugPrint("Display Units are $displayUnits");
       getAdUnits();
 
     });
   }
-
-  //{adUnits: [{content: [{action: {url: {android: {og: , text: , replacements: }, ios: {og: , text: , replacements: }}, hasUrl: false}, isMediaSourceRecommended: false, isIconSourceRecommended: false, title: {color: #434761, replacements: Title 1, og: , text: Title 1}, message: {color: #434761, replacements: Message 1, og: , text: Message 1}, media: {}, key: 7615866422, recommendedText: {og: , text: , replacements: }, recommendedIconText: {og: , text: , replacements: }, icon: {}}], custom_kv: {onekey: onevalue}, wzrk_pivot: wzrk_default, bg: #ffffff, ti: 1674036318, type: simple, wzrk_id: 1674036318_20230317}]}
-  //[{wzrk_id: 1674036318_20230317, bg: #ffffff, ti: 1674036318, wzrk_pivot: wzrk_default, custom_kv: {"onekey":"onevalue"}, type: simple, content: [{"key":7615866422,"message":{"text":"Message 1","color":"#434761","replacements":"Message 1","og":""},"title":{"text":"Title 1","color":"#434761","replacements":"Title 1","og":""},"action":{"url":{"android":{"text":"","replacements":"","og":""},"ios":{"text":"","replacements":"","og":""}},"hasUrl":false},"media":{},"icon":{},"isMediaSourceRecommended":false,"isIconSourceRecommended":false,"recommendedText":{"text":"","replacements":"","og":""},"recommendedIconText":{"text":"","replacements":"","og":""}}]}]
 
   @override
   Widget build(BuildContext context) {
@@ -280,19 +423,15 @@ class _MyHomePageState extends State<MyHomePage> {
     var eventData = {
       'Stuff': 'Shirt',
     };
-    // CleverTapPlugin.recordEvent("ProductF Event", eventData);
-    // CleverTapPlugin.recordEvent("ProductF Event", eventData);
-    // Button Click
+
     CleverTapPlugin.recordEvent("Button Click", eventData);
-    // showToast("ProductF Event Clicked!", context: context);
-  }
+   }
 
   void pushNotification() {
     var eventData = {
       '': '',
     };
     CleverTapPlugin.recordEvent("Push Event", eventData);
-    // showToast("Push Event Clicked!", context: context);
   }
 
   void inAppNotification() {
@@ -300,7 +439,6 @@ class _MyHomePageState extends State<MyHomePage> {
       '': '',
     };
     CleverTapPlugin.recordEvent("InApp Event", eventData);
-    // showToast("InApp Event Clicked!", context: context);
   }
 
 
@@ -315,7 +453,6 @@ class _MyHomePageState extends State<MyHomePage> {
       '': '',
     };
     CleverTapPlugin.recordEvent("App Inbox Event", eventData);
-    // showToast("App Inbox Event Clicked!", context: context);
     showInbox();
   }
 
@@ -328,6 +465,7 @@ class _MyHomePageState extends State<MyHomePage> {
     CleverTapPlugin.showInbox(styleConfig);
   }
 
+
   void nativeDisplay() {
     var eventData = {
       '': '',
@@ -337,162 +475,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void getAdUnits() async {
     var displayUnits = await CleverTapPlugin.getAllDisplayUnits();
-    print("222222222222222222");
     var a = "";
     for (var i in displayUnits!) {
-      print("111111111111111 " + i.toString());
       a = i;
     }
     var decodedJson = json.decode(a);
     var jsonValue = json.decode(decodedJson['content']);
-    debugPrint("value = " + jsonValue['message']);
+    print("value = " + jsonValue['message']);
     for (var i = 0; i < displayUnits.length; i++) {
       var units = displayUnits[i];
       displayText(units);
       // debugPrint("units= " + units.toString());
     }
     for (var element in displayUnits) {
-      debugPrint("units= " + element[1].toString());
+      debugPrint("units= ${element[1]}");
     }
   }
 
   void displayText(units) {
     for (var i = 0; i < units.length; i++) {
-      debugPrint("title= " + units[i].toString());
-      // debugPrint("message= " + item.message.toString());
-
+      debugPrint("title= ${units[i]}");
     }
   }
 }
-
-
-
-
-
-// import 'package:flutter/material.dart';
-// import 'package:clevertap_plugin/clevertap_plugin.dart';
-//
-// void main() => runApp(MyApp());
-//
-// class MyApp extends StatefulWidget {
-//   @override
-//   _MyAppState createState() => _MyAppState();
-// }
-//
-//
-// class _MyAppState extends State<MyApp> {
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     clevertapData();
-//     CleverTapPlugin.registerForPush();
-//     //only for iOS
-//     //var initialUrl = CleverTapPlugin.getInitialUrl();
-//   }
-//   @override
-//   Widget build(BuildContext context) {
-//
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         // This is the theme of your application.
-//         //
-//         // Try running your application with "flutter run". You'll see the
-//         // application has a blue toolbar. Then, without quitting the app, try
-//         // changing the primarySwatch below to Colors.green and then invoke
-//         // "hot reload" (press "r" in the console where you ran "flutter run",
-//         // or simply save your changes to "hot reload" in a Flutter IDE).
-//         // Notice that the counter didn't reset back to zero; the application
-//         // is not restarted.
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-//     );
-//
-//   }
-//
-//   void clevertapData() {
-//     CleverTapPlugin.setDebugLevel(3);
-//     CleverTapPlugin.createNotificationChannel(
-//         "fluttertest", "Flutter Test", "Flutter Test", 3, true);
-//     CleverTapPlugin.
-//     createNotificationChannel("euro", "Name Test", "Description Test", 3, true);
-//
-//     var profile = {
-//       'Name': 'tank',
-//       'Identity': 'td135',
-//       'DOB': '22-04-2000',
-//      'Gender': 'Male',        // Can be either M or F
-//
-//     //Key always has to be "DOB" and format should always be dd-MM-yyyy
-//       'Email': 'tank@gmail.com'
-//     };
-//     // CleverTapPlugin.onUserLogin(profile);
-//   }
-// }
-//
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({Key? key, required this.title}) : super(key: key);
-//
-//
-//   final String title;
-//
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
-//
-//   void _incrementCounter() {
-//     setState(() {
-//       var eventData = {
-//         // Key:    Value
-//         'click': 'counter'
-//       };
-//       CleverTapPlugin.recordEvent("Button Click", eventData);
-//       CleverTapPlugin.recordScreenView("home 2");
-//
-//       // var profile = {
-//       //   'Name': 'Ryan',
-//       //   'Identity': 'RG135',
-//       //   'DOB': '22-04-2000',
-//       //   //Key always has to be "DOB" and format should always be dd-MM-yyyy
-//       //   'Email': 'ryan@gmail.com'
-//       // };
-//       // CleverTapPlugin.onUserLogin(profile);
-//       _counter++;
-//     });
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         // Center is a layout widget. It takes a single child and positions it
-//         // in the middle of the parent.
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             const Text(
-//               'You have pushed the button this many times:',
-//             ),
-//             Text(
-//               '$_counter',
-//               style: Theme.of(context).textTheme.headline4,
-//             ),
-//           ],
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
-//       ), // This trailing comma makes auto-formatting nicer for build methods.
-//     );
-//   }
-// }
